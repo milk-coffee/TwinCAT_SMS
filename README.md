@@ -14,7 +14,12 @@ An example of sending and receiving SMS using TwinCAT and a GSM modem
 
 ## How it works
 
-What's happening inside the program:
+Firstly, it will try to connect to Arduino through the serial port.
 
-1. Inside the "First PC", there's a structure called "ST_Record" consisting of three arrays of 100,000 DWORD objects. Inside the MAIN program, a variable "bla" will show that the variables are populated.
-2. Inside the "Second PC" program, there's the same structure called ST_Record. Random number will be assign to this variable every cycle. Every second, the program will write the value of the variable "record" to the other PC through ADS.
+AT command AT+CMGL="REC UNREAD" is the command sent to GSM modem to get unread SMS.
+
+Arduino will simulate the GSM modem returning unread SMS.
+
+The message is filtered such that only those starting with "Alert:" and ending with "Done." are stored in a string array. The array is displayed on the table.
+If the SMS received is "Alert: This is an announcement. Done.", Alarm 1 will turn off.
+If the SMS received is "Alert: This is the 2nd announcement. Done.", Alarm 2 will turn off.
