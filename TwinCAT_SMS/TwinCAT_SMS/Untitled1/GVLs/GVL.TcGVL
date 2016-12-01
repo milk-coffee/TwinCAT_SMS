@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.6">
+  <GVL Name="GVL" Id="{961e2e9f-7f50-4d90-9c9e-37c5a6bfb3ce}">
+    <Declaration><![CDATA[
+VAR_GLOBAL
+	COMin_EL60xx	AT %I* 	: KL6InData5B;	(* linked to the EL60xx in the TwinCAT System Manager *)
+	COMout_EL60xx	AT %Q*	: KL6OutData5B;	(* linked to the EL60xx in the TwinCAT System Manager *)
+	RxBuffer: ComBuffer;						(* Receive data buffer; used with all receive function blocks *)
+	TxBuffer: ComBuffer;						(* Transmit data buffer; used with all receive function blocks *)
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

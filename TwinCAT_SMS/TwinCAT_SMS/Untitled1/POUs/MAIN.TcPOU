@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.6">
+  <POU Name="MAIN" Id="{ac8fc5c8-6c37-42cd-b215-11f3f3b97f87}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbSerialInit: SerialLineControlADS;
+	fbSendSMS 	: SendSMS;	
+	
+	//Variable to be changed
+	stSerialCfg : ComSerialConfig := (ComPort := 3, BaudRate := 9600);
+	sPhoneNo	: STRING := '83383193';
+	sText 		: STRING := 'Test';
+	
+	bSerial		: BOOL := TRUE;
+	bSendSMS 	: BOOL;
+	bPortOpened	: BOOL;
+	
+	sRawReceive	: T_MAXSTRING;
+	ptr 		: POINTER TO BYTE;
+	i 			: INT;
+	
+	//SendATCommand
+	bSend		: BOOL;
+	sATCommand	: T_MAXSTRING := 'AT+CMGL="REC UNREAD"';
+	sReceive 	: T_MAXSTRING;
+	sendStr 	: SendSTring;
+	sendByt		: SendByte;
+	receiveStr	: ReceiveString;
+	arrStr 		: ARRAY[0..20] OF STRING;
+	j			: INT := 0;
+	
+	alarm 		: BOOL;
+	alarm2		: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*------ Open the serial port ------*)
+fbSerialInit(
+	Connect:= bSerial, 
+	SerialCfg:= stSerialCfg,
+	Timeout:= , 
+	TxBuffer:= TxBuffer, 
+	RxBuffer:= RxBuffer, 
+	PortOpened=> bPortOpened);
+
+(*------ Send SMS ------*)
+fbSendSMS(
+	Send:= bSendSMS, 
+	Number:= sPhoneNo, 
+	Text:= sText, 
+	Busy=> , 
+	Error=> , 
+	RXbuffer:= RxBuffer, 
+	TXbuffer:= TxBuffer);
+
+IF NOT fbSendSMS.Busy AND fbSendSMS.Error = 0 THEN
+	fbSendSMS.Send := FALSE;
+	bSendSMS := FALSE;
+END_IF
+
+(*------ Convert byte array to string ------*)
+ptr:=ADR(sRawReceive);
+FOR i:=0 TO 254 DO
+	ptr^ := RxBuffer.Buffer[i];
+	ptr:=ptr+1;
+END_FOR
+
+(*------ Receive SMS ------*)
+ReceiveSMS();
+
+]]></ST>
+    </Implementation>
+    <Action Name="ReceiveSMS" Id="{ed1bb4a3-7079-42e1-81ba-186c06c4e5d1}">
+      <Implementation>
+        <ST><![CDATA[(*------ Send AT Command ------*)
+IF bSend THEN
+	sendStr(SendString:= sATCommand, Busy=> , Error=> , TXbuffer:= TxBuffer);
+	sendByt(SendByte:=13, Busy=> , Error=> , TxBuffer:= TxBuffer);
+	bSend := FALSE;
+END_IF
+
+(*------ Filter the message received ------*)
+receiveStr(
+	Prefix:= 'Alert:', 
+	Suffix:= 'Over.', 
+	Timeout:= T#5S, 
+	Reset:= , 
+	StringReceived=> , 
+	Busy=> , 
+	Error=> , 
+	RxTimeout=> , 
+	ReceivedString:= sReceive, 
+	RXbuffer:= RxBuffer);
+
+(*------ Store the filtered message in string array ------*)
+IF sReceive <> '' THEN
+	IF j < 20 THEN
+		arrStr[j] := sReceive;
+		j := j+1;
+	ELSE
+		j := 0;
+	END_IF
+END_IF
+
+(*------ Compare the message received with the message sent ------*)
+IF sReceive = 'Alert: This is an announcement. Over.' THEN
+	alarm := FALSE;
+	sReceive := '';
+ELSIF sReceive = 'Alert: This is the 2nd announcement. Over.' THEN
+	alarm2 := FALSE;
+	sReceive := '';
+ELSE 
+	sReceive := '';
+END_IF
+]]></ST>
+      </Implementation>
+    </Action>
+  </POU>
+</TcPlcObject>

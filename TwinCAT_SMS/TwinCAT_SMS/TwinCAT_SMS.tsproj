@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4020.14">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{0A2FB156-98BA-41B1-BF05-0B0C3A3F3EC2}" Namespace="TC2_SERIALCOM" AutoDeleteType="true">KL6inData5B</Name>
+			<Comment>
+				<![CDATA[ This data type is corresponding to the
+   KL-6xxx data structure used in the
+   TwinCAT SystemManager
+   (KL-6xxx version using 5 data bytes / 
+    non-alternative (standard) output ) 
+]]>
+			</Comment>
+			<BitSize>48</BitSize>
+			<SubItem>
+				<Name>Status</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>D</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>5</Elements>
+				</ArrayInfo>
+				<BitSize>40</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{8BBCBC16-935F-476E-A9DE-DFFDE98AC959}" Namespace="TC2_SERIALCOM" AutoDeleteType="true">KL6outData5B</Name>
+			<Comment>
+				<![CDATA[ This data type is corresponding to the
+   KL-6xxx data structure used in the
+   TwinCAT SystemManager
+   (KL-6xxx version using 5 data bytes / 
+    non-alternative (standard) output ) 
+]]>
+			</Comment>
+			<BitSize>48</BitSize>
+			<SubItem>
+				<Name>Ctrl</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>D</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>5</Elements>
+				</ArrayInfo>
+				<BitSize>40</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{85DC3E7A-8ADA-435B-9479-25573909A7DB}" Namespace="AX5000" TcBaseType="true">E_AX5000_P_0275_ActiveFeedbackAndMemory</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<EnumInfo>
+				<Text>
+					<![CDATA[EAX5000_P_0275_MEMORY_NONE]]>
+				</Text>
+				<Enum>0</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[EAX5000_P_0275_FEEDBACK1_MEMORY_ENCODER]]>
+				</Text>
+				<Enum>1</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[EAX5000_P_0275_FEEDBACK1_MEMORY_DRIVE]]>
+				</Text>
+				<Enum>2</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[EAX5000_P_0275_FEEDBACK2_MEMORY_ENCODER]]>
+				</Text>
+				<Enum>8</Enum>
+			</EnumInfo>
+			<EnumInfo>
+				<Text>
+					<![CDATA[EAX5000_P_0275_FEEDBACK2_MEMORY_DRIVE]]>
+				</Text>
+				<Enum>16</Enum>
+			</EnumInfo>
+			<Hides>
+				<Hide GUID="{F1A82E04-2D76-4E5D-BB15-437337214D25}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{D7D16A25-71D5-48E0-882D-56AB4D826BC2}" Namespace="AX5000" PersistentType="true">ST_AX5000_P_0275</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>ActiveFeedbackAndMemory</Name>
+				<Type GUID="{85DC3E7A-8ADA-435B-9479-25573909A7DB}" Namespace="AX5000">E_AX5000_P_0275_ActiveFeedbackAndMemory</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>InitializationErrorBehavior</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{0D1A14D3-018F-4F48-88A7-90B490A317B5}"/>
+				<Hide GUID="{43B3CFF1-FA94-4CC1-8B03-C73EF940373B}"/>
+				<Hide GUID="{81B09CD0-943C-4070-AA5B-0A6818251CEB}"/>
+				<Hide GUID="{B6598B95-DC2C-454C-9B12-DE628B32D897}"/>
+			</Hides>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000c40e0000c40e0000100000001000000000000000ff0000000084000084848400c6c6c6000000ff00ff00ff0000ffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff00ffffff0066333333333336666644444340403666664004434747366666405443444436666640044340403666664004434141366666400453444436666640042340403666664444444545366600044544444436660644454440403666004555554444366606444544424236660004454444443666</ImageData>
+	</ImageDatas>
+	<Project ProjectGUID="{E8C61C51-30F4-4DCE-B7A7-FC63B1A84FF8}" Target64Bit="true" ShowHideConfigurations="#x6">
+		<System>
+			<Licenses>
+				<Target>
+					<ManualSelect>{FDE02854-39A7-440C-9EAE-C234A16A3CED}</ManualSelect>
+				</Target>
+			</Licenses>
+			<Tasks>
+				<Task Id="2" Priority="20" CycleTime="100000" AmsPort="350">
+					<Name>PlcTask</Name>
+				</Task>
+				<Task Id="4" Priority="1" CycleTime="10000" AmsPort="351">
+					<Name>FAST_Serial</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{E0110337-EE21-4CF8-8FB2-2F3D020F4C5E}" Name="Untitled1" PrjFilePath="Untitled1\Untitled1.plcproj" TmcFilePath="Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
+				<Instance Id="#x01010010" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2">
+					<Name>Untitled1 Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>GVL.COMin_EL60xx</Name>
+							<Comment>
+								<![CDATA[ linked to the EL60xx in the TwinCAT System Manager ]]>
+							</Comment>
+							<Type GUID="{0A2FB156-98BA-41B1-BF05-0B0C3A3F3EC2}" Namespace="TC2_SERIALCOM">KL6inData5B</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>GVL.COMout_EL60xx</Name>
+							<Comment>
+								<![CDATA[ linked to the EL60xx in the TwinCAT System Manager ]]>
+							</Comment>
+							<Type GUID="{8BBCBC16-935F-476E-A9DE-DFFDE98AC959}" Namespace="TC2_SERIALCOM">KL6outData5B</Type>
+						</Var>
+					</Vars>
+					<TaskPouOids>
+						<TaskPouOid Prio="1" OTCID="#x01010011"/>
+						<TaskPouOid Prio="20" OTCID="#x01010012"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device DevType="111" DevFlags="#x0003" AmsPort="28675" AmsNetId="10.123.66.28.4.1" RemoteName="Device 3 (EtherCAT)" Id="3">
+				<Name>Device 3 (EtherCAT)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Local Area Connection (Intel(R) Ethernet Connection</DeviceDesc>
+						<DeviceName>\DEVICE\{E6D81E16-BECE-4731-BDFD-C67FE3B65F0E}</DeviceName>
+						<DeviceData>847beb04d0d5</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="2" AddrType="9" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Box BoxType="9081" AmsPort="28928" Id="1">
+					<Name>Box 1 (BK1150)</Name>
+					<ImageId>1000</ImageId>
+					<Vars VarGrpType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>CouplerState</Name>
+							<Comment>
+								<![CDATA[0x0000 = No error
+0x0001 = K-Bus error
+0x0002 = Configuration error
+0x0010 = Outputs disabled
+0x0020 = K-Bus overrun
+0x0040 = Communication error (Inputs)
+0x0080 = Communication error (Outputs)
+]]>
+							</Comment>
+							<Type>UINT</Type>
+							<BitOffs>312</BitOffs>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>CouplerCtrl</Name>
+							<Comment>
+								<![CDATA[0x0010 = Disable outputs
+0x0020 = Show K-Bus overrun
+]]>
+							</Comment>
+							<Type>UINT</Type>
+							<BitOffs>312</BitOffs>
+						</Var>
+					</Vars>
+					<BusCoupler ComplexTermSupport="true" NewHardware="true">
+						<Flags SupportVirtualTerms="true"/>
+						<Term Id="2" TermType="#x3001771" Fieldbus="7">
+							<Name>Term 2 (KL6001-S)</Name>
+							<ImageId>32</ImageId>
+							<Vars VarGrpType="3">
+								<Name>Channel 1</Name>
+								<Var>
+									<Name>State</Name>
+									<Type>USINT</Type>
+									<BitOffs>328</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Data In 0</Name>
+									<Type>USINT</Type>
+									<BitOffs>336</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Data In 1</Name>
+									<Type>USINT</Type>
+									<BitOffs>344</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Data In 2</Name>
+									<Type>USINT</Type>
+									<BitOffs>352</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Data In 3</Name>
+									<Type>USINT</Type>
+									<BitOffs>360</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Data In 4</Name>
+									<Type>USINT</Type>
+									<BitOffs>368</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Ctrl</Name>
+									<Type>USINT</Type>
+									<BitOffs>328</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>Data Out 0</Name>
+									<Type>USINT</Type>
+									<BitOffs>336</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>Data Out 1</Name>
+									<Type>USINT</Type>
+									<BitOffs>344</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>Data Out 2</Name>
+									<Type>USINT</Type>
+									<BitOffs>352</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>Data Out 3</Name>
+									<Type>USINT</Type>
+									<BitOffs>360</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>Data Out 4</Name>
+									<Type>USINT</Type>
+									<BitOffs>368</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+							</Vars>
+						</Term>
+						<Term Id="1" TermType="#x2332" Fieldbus="7">
+							<Name>End Term (KL9010)</Name>
+							<ImageId>32</ImageId>
+						</Term>
+					</BusCoupler>
+					<EtherCAT SlaveType="3" AdsServerAddress="0a7b421c0402e903" PdiType="#x0e08" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="51" FoeType="1" VendorId="#x00000002" ProductCode="#x047e2c22" RevisionNo="#x00100000" InfoDataAddr="true" InfoDataNetId="true" TimeoutMailbox2="6000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="17" PortABoxInfo="#x00ffffff">
+						<SyncMan>001c88002600010001000000400000028800001c26010000</SyncMan>
+						<SyncMan>001e88002200010002000000400000028800001e22010000</SyncMan>
+						<SyncMan>001008002400010003000000000000000000001024010000</SyncMan>
+						<SyncMan>001608002000010004000000000000000000001620010000</SyncMan>
+						<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
+						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
+						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<BootStrapData>0010140200181402</BootStrapData>
+						<CoeProfile ProfileNo="5001"/>
+					</EtherCAT>
+				</Box>
+				<EtherCAT DeviceDesc="Local Area Connection (Intel(R) Ethernet Connection"/>
+			</Device>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-0012-0101-1000-010120000403}" Id="#x03070010"/>
+		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
+			<OwnerB Name="TIID^Device 3 (EtherCAT)^Box 1 (BK1150)">
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^D[0]" VarB="Term 2 (KL6001-S)^Channel 1^Data In 0"/>
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^D[1]" VarB="Term 2 (KL6001-S)^Channel 1^Data In 1"/>
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^D[2]" VarB="Term 2 (KL6001-S)^Channel 1^Data In 2"/>
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^D[3]" VarB="Term 2 (KL6001-S)^Channel 1^Data In 3"/>
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^D[4]" VarB="Term 2 (KL6001-S)^Channel 1^Data In 4"/>
+				<Link VarA="PlcTask Inputs^GVL.COMin_EL60xx^Status" VarB="Term 2 (KL6001-S)^Channel 1^State"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^Ctrl" VarB="Term 2 (KL6001-S)^Channel 1^Ctrl"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^D[0]" VarB="Term 2 (KL6001-S)^Channel 1^Data Out 0"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^D[1]" VarB="Term 2 (KL6001-S)^Channel 1^Data Out 1"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^D[2]" VarB="Term 2 (KL6001-S)^Channel 1^Data Out 2"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^D[3]" VarB="Term 2 (KL6001-S)^Channel 1^Data Out 3"/>
+				<Link VarA="PlcTask Outputs^GVL.COMout_EL60xx^D[4]" VarB="Term 2 (KL6001-S)^Channel 1^Data Out 4"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmProject>

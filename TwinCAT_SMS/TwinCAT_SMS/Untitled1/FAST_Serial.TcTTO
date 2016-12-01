@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4020.6">
+  <Task Name="FAST_Serial" Id="{fa78c411-d539-4783-a320-fac60d7b5ccf}">
+    <!--CycleTime in micro seconds.-->
+    <CycleTime>1000</CycleTime>
+    <Priority>1</Priority>
+    <PouCall>
+      <Name>KL6001_Serial</Name>
+    </PouCall>
+    <TaskFBGuid>{ee37d492-44fa-475a-9c8d-0549867f751e}</TaskFBGuid>
+    <Fb_init>{74c6b74e-f6de-48fe-b0a5-50f19cb8352f}</Fb_init>
+    <Fb_exit>{3020ab11-339f-4e02-85a4-757c628ded3f}</Fb_exit>
+    <CycleUpdate>{818e3d59-7370-4631-9548-a8e2b1dfa351}</CycleUpdate>
+    <PostCycleUpdate>{f81fa77d-22f4-4835-afe5-3d18381bb72b}</PostCycleUpdate>
+  </Task>
+</TcPlcObject>
