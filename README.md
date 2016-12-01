@@ -10,7 +10,7 @@ An example of sending and receiving SMS using TwinCAT and a GSM modem
 3. Set alarm 1 and 2
 4. Send the AT command
 
-![alt tag](http://imgur.com/a/O62T4)
+![alt tag](https://github.com/milk-coffee/TwinCAT_SMS/blob/master/Images/TinyTake01-12-2016-02-33-41.gif)
 
 ## How it works
 
